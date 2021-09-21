@@ -192,6 +192,39 @@ Exit nano and save the playbook.
 
 root@56b542ca508c:/etc/ansible/roles# ansible-playbook elk-playbook.yml
 
+```bash
+root@34a0f498a3fc:/etc/ansible/roles# ansible-playbook elk-playbook.yml
+
+PLAY [Configure Elk VM with Docker] ****************************************************
+
+TASK [Gathering Facts] *****************************************************************
+ok: [10.1.0.4]
+
+TASK [Install docker.io] ***************************************************************
+changed: [10.1.0.4]
+
+TASK [Install python3-pip] *************************************************************
+changed: [10.1.0.4]
+
+TASK [Install Docker module] ***********************************************************
+changed: [10.1.0.4]
+
+TASK [Increase virtual memory] *********************************************************
+changed: [10.1.0.4]
+
+TASK [Increase virtual memory on restart] **********************************************
+changed: [10.1.0.4]
+
+TASK [download and launch a docker elk container] **************************************
+changed: [10.1.0.4]
+
+TASK [Enable service docker on boot] ***************************************************
+changed: [10.1.0.4]
+
+PLAY RECAP *****************************************************************************
+10.1.0.4                   : ok=1    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+```
+
 PLAY [Configure Elk VM with Docker] ****************************************************
 
 TASK [Gathering Facts] *****************************************************************
