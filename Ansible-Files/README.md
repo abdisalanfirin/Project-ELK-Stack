@@ -229,6 +229,7 @@ root@56b542ca508c:/etc/ansible/roles# ssh Azadmin@10.1.0.4
 Azadmin@elk:~$ sudo docker ps
 CONTAINER ID    IMAGE         COMMAND                  CREATED      STATUS         PORTS                                                                              NAMES
 302324cc1367   sebp/elk:761   "/usr/local/bin/star…"   7 days ago   Up 2 minutes   0.0.0.0:5044->5044/tcp, 0.0.0.0:5601->5601/tcp, 0.0.0.0:9200->9200/tcp, 9300/tcp   elk
+
 Azadmin@elk-server:~$
 
 - the ELK server container is up and running.
