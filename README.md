@@ -1,10 +1,8 @@
-## Automated ELK Stack Deployment
+# Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
 
-
-![ELK Stack Diagram](C:\Users\Firin\Desktop\Project-ELK-Stack\Images\ELK_slack.PNG)
-
+[ELK Stack Diagram](./Images/ELK_stack.PNG)
 
 These files been tested and verify and used to generate a live ELK Stack deployment within Azure. They can also be used to either recreate the entire deployment pictured above. And also maybe select portions of the yml files may be used to install only certain pieces of it, such as Filebeat.
 
@@ -22,7 +20,6 @@ DVWA-Playbook.yml used to install DVWA Webservers.
 
 - [`metricbeat-playbook.yml` I install Metricbeat service on webservers](./Metricbeat/metricbeat-playbook.yml)
 
-
 This document contains the following details:
 
 Description of the Topology
@@ -31,7 +28,6 @@ ELK Configuration
 Beats in Use
 Machines Being Monitored
 How to Use the Ansible Build
-
 
 ### Description of the Topology
 
