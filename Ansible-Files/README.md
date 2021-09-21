@@ -12,7 +12,7 @@ DVWA-Playbook.yml used to install DVWA Webservers.
 
 - [`dvwa-playbook.yml` used to install DVWA Webservers.](./dvwa/dvwa-playbook.yml)
 
-- filebeat-playbook.yml used to install Filebeat Syslog Service on webservers.
+- [`elk-playbook.yml` is how to install ELK Stack Server.](./ELK/elk-playbook.yml)
 
 - metricbeat-config.yml Metricbeat service configuration modified and copied to the webserver as metricbeat.yml.
 
