@@ -151,7 +151,8 @@ CONTAINER ID   IMAGE                          COMMAND                  CREATED  
 
 - Start the container:
 
-Azureuser@Jump-Box-Provisioner:~$ sudo docker container start festive_wiles
+- Azureuser@Jump-Box-Provisioner:~$ sudo docker container start festive_wiles
+
 root@56b542ca508c:~#
 
 - Attach (connect) to the Ansible container: festive_wiles
