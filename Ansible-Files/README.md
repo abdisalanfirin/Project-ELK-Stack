@@ -2,38 +2,52 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.PNG)
+![ELK-STACK-Diagram](./Images/ELK-STACK.PNG)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files been tested and verify and used to generate a live ELK Stack deployment within Azure. They can also be used to either recreate the entire deployment pictured above. And also maybe select portions of the yml files may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+dvwa-playbook.yml used to install DVWA Webservers.
+
+elk-playbook.yml used to install ELK Stack Server.
+
+filebeat-config.yml Filebeat service configuration modified and copied to the webservers as filebeat.yml.
+
+filebeat-playbook.yml used to install Filebeat Syslog Service on webservers.
+
+metricbeat-config.yml Metricbeat service configuration modified and copied to the webserver as metricbeat.yml.
+
+metricbeat-playbook.yml used to install Metricbeat service on webservers
 
 This document contains the following details:
-- Description of the Topologu
-- Access Policies
-- ELK Configuration
-  - Beats in Use
-  - Machines Being Monitored
-- How to Use the Ansible Build
+
+Description of the Topology
+Access Policies
+ELK Configuration
+Beats in Use
+Machines Being Monitored
+How to Use the Ansible Build
 
 
 ### Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures the web application is available across multiple web application servers restricting unwanted or unecessary access to the Internet. A Load Balancers also may mitigate some DoS attacks as it can balance the load across many web application servers. Typically load balancers include a health probe to check all of the servers in its pool are functioning appropriately before sending traffic to them or it will stop sending traffic to missing or poor performing servers providing better uptime for the web application.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+A Jump Box is similar to a gateway router as it becomes a single point of a protected network exposed to the public network as it sits in front of the other machines that are not exposed to the Internet. To further control access only specified IP addresses and port 22 are allowed access to the Jump Box. To avoid the username and password weakness of SSH we used asynchronous encryption keys to ensure a higher degree of protection than usernames and passwords.
+
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the machine metrics and system logs.
+
+Filebeat is used to capture system logs or file locations you specify then sending data to the ELK Server for indexing and review.
+
+Metricbeat is used to capture machine metrics on Linux, Windows, and Mac hosts then forwarding to the ELK Server to track system level CPU usage, memory, file system, disk I/O, and network I/O metricbeat
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
-| FIRIN    |Worstation|24.118.22.58| WINDOWS 10       |
+| AFIRIN44 |Worstation|24.118.22.58| WINDOWS 10       |
 |Jump Box  | Gateway  | 10.0.0.4   | Linux UBUNTU 18.4|
 | WEB-1    | DVWA     | 10.0.0.5   | LINUX UBUNTU 18.4|
 | WEB-2    | DVWA     | 10.0.0.6   | LINUX UBUNTU 18.4|
@@ -53,7 +67,7 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses  |
 |----------|---------------------|---------------------- |
-| FIRIN    | YES                 |10.0.0.0/16 10.1.0.0/16| 
+| AFIRIN   | YES                 |10.0.0.0/16 10.1.0.0/16| 
 | Jump Box | Yes                 |10.0.0.0/16 10.1.0.0/16|
 | WEB-1    | NO                  |10.0.0.0/16 10.1.0.0/16|
 | WEB-2    | NO                  |10.0.0.0/16 10.1.0.0/16|
@@ -77,8 +91,8 @@ The playbook implements the following tasks:
 - After that I Download Docker ELK Container and configure it.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-## Image here
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+
+![Running-Docker-ps](./Images/Docker-ps.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -335,11 +349,11 @@ Choose System Logs.
 Click on the DEB tab under Getting Started where you will see the Linux Filebeat installation instructions.
 Scroll Module status and click Check Data to ensure we get a check by the Module status.
 
-filebeat image model here,,,,,,,,,
+![Installation-filebeat](./Images/filebeat.png)
 
 I Scroll to the bottom and click on System logs dashboard to see Kibana presenting System Log data.
 
-system log filebeat image here............
+![Filebeat-system-log](./Images/filebeat-dashboard.png)
 
 ### Installing Metricbeat on the webserver virtual machines
 
@@ -459,11 +473,12 @@ PLAY RECAP *********************************************************************
 - Click the DEB tab under Getting Started where you will see Linux Metricbeat instructions.
 - Scroll Module status and click Check Data to ensure we get a check by the Module status.
 
-metricbeat imag here................
+
+![Installation-metricbeat](./Images/metricbeat.png)
 
 - Scroll to the bottom and click on Docker metrics dashboard.
 
-metrixbeat dashboard image here..........
+![Installation-metricbeat-system-log](./Images/metricbeat-dashboard.png)
 
 - Metricbeat was successfully sending data to the ELK stack the screenshots above
 
