@@ -10,7 +10,7 @@ These files been tested and verify and used to generate a live ELK Stack deploym
 
 DVWA-Playbook.yml used to install DVWA Webservers.
 
-- filebeat-config.yml. Filebeat service configuration modified and copied to the webservers as filebeat.yml.
+- [`dvwa-playbook.yml` used to install DVWA Webservers.](./dvwa/dvwa-playbook.yml)
 
 - filebeat-playbook.yml used to install Filebeat Syslog Service on webservers.
 
