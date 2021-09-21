@@ -193,7 +193,7 @@ Exit nano and save the playbook.
 root@56b542ca508c:/etc/ansible/roles# ansible-playbook elk-playbook.yml
 
 ```bash
-root@34a0f498a3fc:/etc/ansible/roles# ansible-playbook elk-playbook.yml
+root@56b542ca508c:/etc/ansible/roles# ansible-playbook elk-playbook.yml
 
 PLAY [Configure Elk VM with Docker] ****************************************************
 
@@ -225,36 +225,6 @@ PLAY RECAP *********************************************************************
 10.1.0.4                   : ok=1    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 ```
 
-PLAY [Configure Elk VM with Docker] ****************************************************
-
-TASK [Gathering Facts] *****************************************************************
-ok: [10.1.0.4]
-
-TASK [Install docker.io] ***************************************************************
-changed: [10.1.0.4]
-
-TASK [Install python3-pip] *************************************************************
-changed: [10.1.0.4]
-
-TASK [Install Docker module] ***********************************************************
-changed: [10.1.0.4]
-
-TASK [Increase virtual memory] *********************************************************
-changed: [10.1.0.4]
-
-TASK [Increase virtual memory on restart] **********************************************
-changed: [10.1.0.4]
-
-TASK [download and launch a docker elk container] **************************************
-changed: [10.1.0.4]
-
-TASK [Enable service docker on boot] ***************************************************
-changed: [10.1.0.4]
-
-PLAY RECAP *****************************************************************************
-10.1.0.4                   : ok=1    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
-
-
 - ELK container is installed, SSH to your container and also double-check that my elk-docker container is running.
 
 
@@ -277,10 +247,12 @@ Stay attached to the Ansible container on the Jump box.
 then Install the ELK Stack on the elk server after that i  Connected to the Jump Box and attach to the Ansible container for steps to attach to the Ansible container.
 then Copy filebeat-config.yml to the Ansible container.
 
+```bash
 root@56b542ca508c:/etc/ansible# curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/files/filebeat-config.yml
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 73112  100 73112    0     0   964k      0 --:--:-- --:--:-- --:--:--  964k
+```
 
 I Edit the Filebeat configuration file to send Beat traffic to the ELK Stack container running on the ELK Server.
 root@56b542ca508c:/etc/ansible# nano -l /etc/ansible/files/filebeat-config.yml
