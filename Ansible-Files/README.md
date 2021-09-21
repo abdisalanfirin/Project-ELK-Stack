@@ -148,21 +148,29 @@ Which file do you update to make Ansible run the playbook on a specific machine?
 
 - Locate the container name:
 
+```bash
 Azureuser@Jump-Box-Provisioner:~$ sudo docker container list -a
 CONTAINER ID   IMAGE                          COMMAND                  CREATED       STATUS                   PORTS     NAMES
-34a0f498a3fc   cyberxsecurity/ansible         "/bin/sh -c /bin/bas…"   2 weeks ago   Exited (0) 4 hours ago             festive_wiles
+ 56b542ca508c  cyberxsecurity/ansible         "/bin/sh -c /bin/bas…"   2 weeks ago   Exited (0) 4 hours ago             festive_wiles
+```
 
 - Start the container:
 
+```bash
 - Azureuser@Jump-Box-Provisioner:~$ sudo docker container start festive_wiles
+```
 
+```bash
 - root@56b542ca508c:~#
+```
 
 - Attach (connect) to the Ansible container: festive_wiles
 
 - Azureuser@Jump-Box-Provisioner:~$ sudo docker container attach festive_wiles
 
+```bash
 - root@56b542ca508c:~#
+```
 
 ### Update the Ansible hosts file and create yml playbook file
 
@@ -170,7 +178,9 @@ Add the ELK Server IP address to the Ansible /etc/ansible/hosts file creating an
 
 - Open hosts file:
 
+```bash
 root@56b542ca508c:~# nano /etc/ansible/hosts
+```
 
 Add the [elk] section followed by the ELK Server IP address:
 
@@ -180,7 +190,9 @@ Add the [elk] section followed by the ELK Server IP address:
 
 Create the Ansible playbook used to install and configure elk container on  ELK Server virtual machine.
 
+```bash
 - root@56b542ca508c:~# nano /etc/ansible/roles/elk-playbook.yml
+```
 
 ELK install and the configuration tasks can be seen in the elk-playbook.yml playbook to automate ELK Stack deployment.
 
@@ -190,7 +202,9 @@ Exit nano and save the playbook.
 
 - Run the Ansible playbook:
 
+```bash
 root@56b542ca508c:/etc/ansible/roles# ansible-playbook elk-playbook.yml
+```
 
 ```bash
 root@56b542ca508c:/etc/ansible/roles# ansible-playbook elk-playbook.yml
@@ -227,13 +241,16 @@ PLAY RECAP *********************************************************************
 
 - ELK container is installed, SSH to your container and also double-check that my elk-docker container is running.
 
-
+```bash
 root@56b542ca508c:/etc/ansible/roles# ssh Azadmin@10.1.0.4
 Azadmin@elk:~$ sudo docker ps
 CONTAINER ID    IMAGE         COMMAND                  CREATED      STATUS         PORTS                                                                              NAMES
-302324cc1367   sebp/elk:761   "/usr/local/bin/star…"   7 days ago   Up 2 minutes   0.0.0.0:5044->5044/tcp, 0.0.0.0:5601->5601/tcp, 0.0.0.0:9200->9200/tcp, 9300/tcp   elk
+e16768c0f61   sebp/elk:761   "/usr/local/bin/star…"   7 days ago   Up 2 minutes   0.0.0.0:5044->5044/tcp, 0.0.0.0:5601->5601/tcp, 0.0.0.0:9200->9200/tcp, 9300/tcp   elk
+```
 
+```bash
 Azadmin@elk-server:~$
+```
 
 - the ELK server container is up and running.
 
@@ -255,7 +272,10 @@ root@56b542ca508c:/etc/ansible# curl https://gist.githubusercontent.com/slape/5c
 ```
 
 I Edit the Filebeat configuration file to send Beat traffic to the ELK Stack container running on the ELK Server.
+
+```bash
 root@56b542ca508c:/etc/ansible# nano -l /etc/ansible/files/filebeat-config.yml
+```
 
 - In order To send data to the ELK Server I hvae to add IP addressto the filebeat-config.yml.
 Scroll to line #1105 and set the IP address of the ELK server leaving the port :9200 in place.
@@ -289,12 +309,15 @@ host: "10.1.0.4:5601"
 
 Then I Build the playbook from the task overview using nano, Ansible, and Eleastic documentation.
 
+```bash
 root@56b542ca508c::~# nano /etc/ansible/roles/filebeat-playbook.yml
+```
 
 Filebeat install and configuration tasks will be  in the filebeat-playbook.yml playbook to automate the deployment of Filebeat.
 
 ### Running the Filebeat playbook
 
+```bash
 root@56b542ca508c:/etc/ansible# ansible-playbook /etc/ansible/roles/filebeat-playbook.yml
 
 PLAY [Installing and Launching Filebeat] *******************************************************
@@ -351,6 +374,7 @@ PLAY RECAP *********************************************************************
 10.0.0.5                  : ok=7    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 10.0.0.6                  : ok=7    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 10.0.0.7                   : ok=7    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
 
 - playbook ran successfully as there were no unreachable, failed, skipped, rescues or ignored
 
@@ -375,15 +399,18 @@ Stay attached to the Ansible container on the Jump box.
 i also Install the ELK Stack on the elk server then i Connected to the Jump Box and attach to the Ansible container for steps to attach to the Ansible container.
 After that i Copy metric-config.yml to the Ansible container.
 
+```bash
 root@56b542ca508c:/etc/ansible# curl https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
  00  6188  100  6188    0     0  21337      0 --:--:-- --:--:-- --:--:-- 21337
-
+```
 
 I edit the Metricbeat configuration file to send Beat traffic to the ELK Stack container running on the ELK Server.
 
+```bash
 root@56b542ca508c:/etc/ansible# nano -l /etc/ansible/files/metricbeat-config.yml
+```
 
 - in order send data to the ELK Server the IP address must be added to the metricbeat-config.yml.
 i Scroll to line #62 and set the IP address of the ELK Server leaving the port :5601 in place.
@@ -420,12 +447,15 @@ Overview of the playbook tasks performed on the webservers:
 
 - Build the playbook from the task overview using nano, Ansible, and Eleastic documentation.
 
+```bash
 root@56b542ca508c:~# nano /etc/ansible/roles/metricbeat-playbook.yml
+```
 
 - Metricbeat install and configuration tasks can be seen in the metricbeat-playbook.yml playbook to automate the deployment of Metricbeat.
 
 ### Running the Metricbeat playbook
 
+```bash
 root@56b542ca508c:/etc/ansible/roles# ansible-playbook metricbeat-playbook.yml
 
 PLAY [Install metric beat] **************************************************************************************************
@@ -475,6 +505,7 @@ PLAY RECAP *********************************************************************
 10.0.0.6                   : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 10.0.0.7                   : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
  rescued=0    ignored=0
+```
 
 - playbook ran successfully and there was no unreachable, failed, skipped, rescued, or ignored issues.
 
