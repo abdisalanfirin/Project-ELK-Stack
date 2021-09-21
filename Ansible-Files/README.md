@@ -166,7 +166,9 @@ CONTAINER ID   IMAGE                          COMMAND                  CREATED  
 
 - Attach (connect) to the Ansible container: festive_wiles
 
+```bash
 - Azureuser@Jump-Box-Provisioner:~$ sudo docker container attach festive_wiles
+```
 
 ```bash
 - root@56b542ca508c:~#
