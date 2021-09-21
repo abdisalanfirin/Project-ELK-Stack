@@ -8,7 +8,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files been tested and verify and used to generate a live ELK Stack deployment within Azure. They can also be used to either recreate the entire deployment pictured above. And also maybe select portions of the yml files may be used to install only certain pieces of it, such as Filebeat.
 
-- DVWA-Playbook.yml used to install DVWA Webservers.
+DVWA-Playbook.yml used to install DVWA Webservers.
 
 - filebeat-config.yml Filebeat service configuration modified and copied to the webservers as filebeat.yml.
 
