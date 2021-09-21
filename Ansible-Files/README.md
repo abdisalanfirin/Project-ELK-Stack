@@ -153,12 +153,13 @@ CONTAINER ID   IMAGE                          COMMAND                  CREATED  
 
 - Azureuser@Jump-Box-Provisioner:~$ sudo docker container start festive_wiles
 
-root@56b542ca508c:~#
+- root@56b542ca508c:~#
 
 - Attach (connect) to the Ansible container: festive_wiles
 
-Azureuser@Jump-Box-Provisioner:~$ sudo docker container attach festive_wiles
-root@56b542ca508c:~#
+- Azureuser@Jump-Box-Provisioner:~$ sudo docker container attach festive_wiles
+
+- root@56b542ca508c:~#
 
 ### Update the Ansible hosts file and create yml playbook file
 
