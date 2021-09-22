@@ -282,7 +282,7 @@ After that I Scroll to line #1805 to replace the IP address with the ELK Server'
 setup.kibana:
 host: "10.1.0.4:5601"
 
-<details><summary>### Filebeat Installation Playbook file</summary>
+<details><summary> Filebeat Installation Playbook file</summary>
 <br> 
 
 - Download the .deb file from artifacts.elastic.co.
@@ -382,7 +382,7 @@ I Scroll to the bottom and click on System logs dashboard to see Kibana presenti
 
 </details>
 
-<details><summary>### Installing Metricbeat on the webserver virtual machines</summary>
+<details><summary> Installing Metricbeat on the webserver virtual machines</summary>
 <br> 
 
 I Create the Metricbeat Configuration File
