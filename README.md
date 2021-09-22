@@ -282,7 +282,8 @@ After that I Scroll to line #1805 to replace the IP address with the ELK Server'
 setup.kibana:
 host: "10.1.0.4:5601"
 
-### Filebeat Installation Playbook file
+<details><summary>### Filebeat Installation Playbook file</summary>
+<br> 
 
 - Download the .deb file from artifacts.elastic.co.
 - Install the .deb file using the dpkg command shown below:
@@ -379,7 +380,10 @@ I Scroll to the bottom and click on System logs dashboard to see Kibana presenti
 
 ![Filebeat-system-log](./Images/filebeat-dashboard.PNG)
 
-### Installing Metricbeat on the webserver virtual machines
+</details>
+
+<details><summary>### Installing Metricbeat on the webserver virtual machines</summary>
+<br> 
 
 I Create the Metricbeat Configuration File
 Stay attached to the Ansible container on the Jump box.
@@ -512,6 +516,8 @@ PLAY RECAP *********************************************************************
 ![Installation-metricbeat-system-log](./Images/metricbeat-dashboard.PNG)
 
 - Metricbeat was successfully sending data to the ELK stack the screenshots above
+
+</details>
 
 ### Further Steps
 
