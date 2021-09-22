@@ -8,7 +8,7 @@ These files been tested and verify and used to generate a live ELK Stack deploym
 
 DVWA-Playbook.yml used to install DVWA Webservers.
 
-- [`DVWA-playbook.yml` used to install DVWA Webservers.](./DVWA/DVWA-playbook.yml)
+- [`DVWA-Playbook.yml` used to install DVWA Webservers.](./DVWA/DVWA-Playbook.yml)
 
 - [`install-elk.yml` is how to install ELK Stack Server.](./ELK/install-elk.yml)
 
