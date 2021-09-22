@@ -8,9 +8,9 @@ These files been tested and verify and used to generate a live ELK Stack deploym
 
 DVWA-Playbook.yml used to install DVWA Webservers.
 
-- [`dvwa-playbook.yml` used to install DVWA Webservers.](./DVWA/DVWA-playbook.yml)
+- [`DVWA-playbook.yml` used to install DVWA Webservers.](./DVWA/DVWA-playbook.yml)
 
-- [`elk-playbook.yml` is how to install ELK Stack Server.](./ELK/install-elk.yml)
+- [`install-elk.yml` is how to install ELK Stack Server.](./ELK/install-elk.yml)
 
 - [`filebeat-config.yml` Filebeat configuration modified and copied to the webservers as a  `filebeat.yml`.](./Filebeat/filebeat-config.yml)
 
