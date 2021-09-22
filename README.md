@@ -33,9 +33,12 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures the web application is available across multiple web application servers restricting unwanted or unecessary access to the Internet. A Load Balancers also may mitigate some DoS attacks as it can balance the load across many web application servers. Typically load balancers include a health probe to check all of the servers in its pool are functioning appropriately before sending traffic to them or it will stop sending traffic to missing or poor performing servers providing better uptime for the web application.
+Load balancing ensures the web application is available across multiple web application servers restricting unwanted or unecessary access to the Network.
 
-A Jump Box is similar to a gateway router as it becomes a single point of a protected network exposed to the public network as it sits in front of the other machines that are not exposed to the Internet. To further control access only specified IP addresses and port 22 are allowed access to the Jump Box. To avoid the username and password weakness of SSH we used asynchronous encryption keys to ensure a higher degree of protection than usernames and passwords.
+ A Load Balancers also may mitigate some DoS attacks as it can balance the load across many web application servers. Typically without the clients having to understand how many servers are in use or how they are configured.load balancers include a health probe to check all of the servers in its pool are functioning appropriately before sending traffic to them or it will stop sending traffic to missing or poor performing servers providing better uptime for the web application.
+
+A Jump Box is similar to a gateway router as it becomes a single point of a protected network exposed to the public network as it sits in front of the other machines that are not exposed to the Internet. futher explanation is that the jump box is a secure computer that all admins first connect to before launching any administrative task or use as an origination point to connect to other servers or untrusted environments.
+To further control access only specified IP addresses and port 22 are allowed access to the Jump Box. To avoid the username and password weakness of SSH we used asynchronous encryption keys to ensure a higher degree of protection than usernames and passwords.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the machine metrics and system logs.
 
