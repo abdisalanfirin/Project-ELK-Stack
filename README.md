@@ -56,13 +56,11 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 ### Access Policies
 
-The machines on the internal network are not exposed to the public Internet. 
+- The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+- Only the Jump box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+- Machines within the network can only be accessed by Jump Box with the private IP address 10.0.0.4
 
 A summary of the access policies in place can be found in the table below.
 
@@ -76,19 +74,14 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
-
-### Answer
 its simplifys deployment from the central location that can be used to expand or redeploy the ELK Stack just by running an Ansible playbooks.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-
-### Answer
+In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 
 - The playbook implements the following tasks:
-- First I Install Docker, Python, and the Docker Module.
-- Then I Configure the ELK Server memory.
+- First I Install docker.io, Python, and the Docker Module.
+- Then I Configure the ELK Server memory and increased.
 - After that I Download Docker ELK Container and configure it.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
@@ -97,42 +90,35 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-## Answer
 
 - **10.0.0.5**
 - **10.0.0.6**
 - **10.0.0.7**
 
 I have installed the following Beats on these machines:
-## Answer
 
 - **Filebeat**
 - **Metricbeat**
 
 These Beats allow us to collect the following information from each machine:
-## Answer
 
 - System log and application log details which include Web Traffic is gathered by Filebeat.
 - CPU, Memory, Disk, Network, and other top-like statics are gathered with Metricbeat.
 
 ### Using the Playbook
+
 In order to use the playbook, I will need to have an Ansible control node already configured, Ansible control node on the jump box  
 
 SSH into the control node and follow the steps below:
+
 - Copy the configuration file to the /etc/ansible/files/ to make configuration changes.
 - Update the /etc/ansible/hosts file to include the targeted machine or machines.
 - Create the <role>-playbook.yml file with the required tasks to be run by ansible-playbook.
 - Run the playbook then navigate to the ELK Server Kibana data installation page to check the Module status that the installation worked as expected.
 
-then Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+Ansible playbook files were <role>-playbook.yml files located on the Jump Server within the Ansible Docker container in the /etc/ansible/roles/ folder.
 
-### Answers
-
-- Ansible playbook files were <role>-playbook.yml files located on the Jump Server within the Ansible Docker container in the /etc/ansible/roles/ folder.
-
-- To update specific machines we edited the /etc/ansible/hosts by ensuring the [header] element is not commented out with a # or needs to be created then the hostname/IP of the machines are added to the file for Ansible to target groups of machines.
+In order update specific machines we edited the /etc/ansible/hosts by ensuring the [header] element is not commented out with a # or needs to be created then the hostname/IP of the machines are added to the file for Ansible to target groups of machines.
 
 - Navigating to <http://104.210.155.66/app/kibana> successfully ensures the ELK Server is running and is ready for use.
 
@@ -523,5 +509,17 @@ PLAY RECAP *********************************************************************
 ![Installation-metricbeat-system-log](./Images/metricbeat-dashboard.PNG)
 
 - Metricbeat was successfully sending data to the ELK stack the screenshots above
+
+### Further Steps
+
+While this architure is secure enough, 
+we can and should further harden setups by fallowing this steps:
+
+- limiting the number of machines that our jump box can access.
+- locking the root account and limiting sudo access of the admin acount on the jump box
+- implementing long monitoring on the jump box.
+- implementing two-factor authentication for SSH loging to the jump box.
+- implementing a host firewall (UFC OR IPtables) on the jump box.
+- limiting jump box network access with a virtual private network (VPN).
 
 created by Abdisalan M Firin
