@@ -384,11 +384,11 @@ Choose System Logs.
 Click on the DEB tab under Getting Started where you will see the Linux Filebeat installation instructions.
 Scroll Module status and click Check Data to ensure we get a check by the Module status.
 
-![Installation-filebeat](./Images/filebeat.png)
+![Installation-filebeat](./Images/filebeat.PNG)
 
 I Scroll to the bottom and click on System logs dashboard to see Kibana presenting System Log data.
 
-![Filebeat-system-log](./Images/filebeat-dashboard.png)
+![Filebeat-system-log](./Images/filebeat-dashboard.PNG)
 
 ### Installing Metricbeat on the webserver virtual machines
 
