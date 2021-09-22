@@ -525,4 +525,6 @@ we can and should further harden setups by fallowing this steps:
 - implementing a host firewall (UFC OR IPtables) on the jump box.
 - limiting jump box network access with a virtual private network (VPN).
 
-created by Abdisalan M Firin
+Thank you so much for reading my ELK-Stack project.
+
+**created by Abdisalan M Firin**
