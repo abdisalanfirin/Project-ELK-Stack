@@ -516,11 +516,11 @@ PLAY RECAP *********************************************************************
 - Scroll Module status and click Check Data to ensure we get a check by the Module status.
 
 
-![Installation-metricbeat](./Images/metricbeat.png)
+![Installation-metricbeat](./Images/metricbeat.PNG)
 
 - Scroll to the bottom and click on Docker metrics dashboard.
 
-![Installation-metricbeat-system-log](./Images/metricbeat-dashboard.png)
+![Installation-metricbeat-system-log](./Images/metricbeat-dashboard.PNG)
 
 - Metricbeat was successfully sending data to the ELK stack the screenshots above
 
