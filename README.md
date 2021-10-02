@@ -56,6 +56,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | WEB-1    | DVWA     | 10.0.0.5   | LINUX UBUNTU 18.4|
 | WEB-2    | DVWA     | 10.0.0.6   | LINUX UBUNTU 18.4|
 | WEB-3    | DVWA     | 10.0.0.7   | LUNUX UBUNTU 18.4|
+|ELK-Server| ELK Stack| 10.1.0.4   | LINUX UBUNTU 18.4|
 
 ### Access Policies
 
@@ -74,6 +75,8 @@ A summary of the access policies in place can be found in the table below.
 | WEB-1    | NO                  |10.0.0.0/16 10.1.0.0/16|
 | WEB-2    | NO                  |10.0.0.0/16 10.1.0.0/16|
 | WEB-3    | NO                  |10.0.0.0/16 10.1.0.0/16| 
+|ELK-Server| NO                  |10.0.0.0/16 10.1.0.0/16|
+
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
